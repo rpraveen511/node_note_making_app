@@ -31,9 +31,7 @@ const removeNote = (title) => {
 
 const listNotes = () => {
     const notes = loadNotes()
-
     console.log(chalk.inverse('Your notes'))
-
     notes.forEach((note) => {
         console.log(note.title)
     })
@@ -41,7 +39,14 @@ const listNotes = () => {
 
 const readNote = (title) => {
     const notes = loadNotes()
-    const note = notes.find((note) => note.title === title)
+    const note = notes.find( item => {
+        item.title == title
+    })
+    console.log(notes.find( item => item.title === title))
+    console.log("notes : ",notes)
+    console.log("title : ",title)
+    console.log('note :', note)
+
 
     if (note) {
         console.log(chalk.inverse(note.title))
@@ -72,3 +77,5 @@ module.exports = {
     listNotes: listNotes,
     readNote: readNote
 }
+
+// dac34c609fd726a256590235cc75b92c
